@@ -1,0 +1,81 @@
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+export default function ContactScreen() {
+  return (
+
+    //This View contain our two screens
+
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+     <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+    </View>
+  );
+}
+//1
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+     <Text>Home!</Text>
+      <Button
+        title="Go to Settings"
+        onPress={() => navigation.navigate('Settings')}
+      />
+    </View>
+  );
+}
+//2
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <Text>Settings!</Text>
+    <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+  </View>
+  );
+}
+const Tab = createBottomTabNavigator();
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputView: {
+    backgroundColor: "#FFC0CB",
+    borderRadius: 30,
+    width: "70%",
+    height: 45,
+    marginBottom: 20,
+ 
+    alignItems: "center",
+  },
+ 
+  TextInput: {
+    height: 50,
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+  },
+ 
+  forgot_button: {
+    height: 30,
+    marginBottom: 30,
+  },
+ 
+  loginBtn: {
+    width: "80%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    backgroundColor: "#FF1493",
+  },
+});
